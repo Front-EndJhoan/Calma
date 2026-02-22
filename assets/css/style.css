@@ -1,0 +1,211 @@
+:root{
+    --background-primary: hsl(210, 20%, 98%);
+    --background-secondary: hsl(0, 0%, 100%);
+    --background-footer: hsl(220, 43%, 11%);
+    --main-text-color: hsl(221, 22%, 19%);
+    --second-text-color: hsl(210, 10%, 96%);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+ul *{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/** ---- HEADER ---- **/
+
+header{
+   background-image: linear-gradient(
+        to top,
+        rgba(255,255,255,0.90) 0%,
+        rgba(255,255,255,0.8) 30%,
+        transparent 70%
+    ),
+    url(../img/golden-buda.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;  
+}
+
+nav{
+    display: flex;
+    justify-content: end;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding-inline-end: 2em;
+    padding-block-start: 2em;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a{
+    color: var(--second-text-color);
+}
+
+nav ul li:last-child{
+    padding: 16px;
+    background-color: var(--background-footer);
+    border-radius: 25px;
+    cursor: pointer;
+}
+.burguer{
+    width: 40px;
+    height: 40px;
+    display: none;
+    background-image: url(../img/burguer.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--background-primary);
+}
+
+.hero{
+    min-height: 100dvh;
+    position: relative;
+    top: 0;
+}
+
+.hero-text{
+    max-width: 600px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text h1{
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--second-text-color);
+}
+
+.hero-text p{
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: var(--second-text-color);
+}
+
+.cta-container{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.start{
+    padding: 16px;
+    background-color: var(--background-secondary);
+    color: var(--main-text-color);
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.start:hover{
+     transform: scale(.95);
+}
+
+.demo{
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.demo:hover{
+    transform: scale(.95);
+}
+
+.demo img{
+    padding-inline-start: 16px;
+}
+
+.demo a{
+     padding: 16px 16px 16px 0;
+      color: var(--main-text-color);
+}
+
+.frame{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    height: 40px;
+    width: 16px;
+    padding: 5px;
+    border: 2px solid var(--background-secondary);
+    border-radius: 25px;
+}
+
+.rounded{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: var(--background-secondary);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0% {transform : translateY(0);}
+    50% {transform: translateY(-25px);}
+    100% {transform: translateY(0);}
+}
+
+/** ---- HERO MOBILE ---- **/
+@media screen and (max-width: 767px) {
+    .burguer{
+    display: block;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+  .menu{
+    position: fixed;
+    justify-content: center;
+    top: 75px;
+    left: -120%;
+    height: 80vh;
+    width: 100vw;
+    background: var(--background-primary);
+    flex-direction: column;
+    transition: right 1s ease-in-out;
+  }
+
+  .menu a{
+    color: var(--main-text-color);
+  }
+
+  .menu li:last-child{
+    background-color: initial;
+    padding: initial;
+  }
+
+   .menu.active {
+    left: 0; 
+  }
+
+  .cta-container{
+    width: 90vw;
+  }
+}
