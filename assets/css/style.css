@@ -4,6 +4,7 @@
     --background-footer: hsl(220, 43%, 11%);
     --main-text-color: hsl(221, 22%, 19%);
     --second-text-color: hsl(210, 10%, 96%);
+    --card-bg: hsl(0, 0%, 100%);
 }
 
 body{
@@ -19,13 +20,74 @@ a{
     text-decoration: none;
 }
 
+/** ---- UTILIDADES ---- **/
+.btn1{
+    padding: 16px;
+    background-color: var(--background-secondary);
+    color: var(--main-text-color);
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover{
+     transform: scale(.95);
+}
+
+.btn2{
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn2:hover{
+    transform: scale(.95);
+}
+
+.btn3{
+    padding: 16px;
+    align-items: center;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn3:hover{
+    transform: scale(.95);
+}
+
+.card{
+    max-width: 330px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background-color: var(--card-bg);
+    box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+    border-radius: 25px;
+    cursor: pointer;
+    animation: transform .3s ease-in-out;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 2px 2px 2px 2px rgb(207, 207, 207);
+}
+
 /** ---- HEADER ---- **/
 
 header{
    background-image: linear-gradient(
         to top,
-        rgba(255,255,255,0.90) 0%,
-        rgba(255,255,255,0.8) 30%,
+        rgb(255, 255, 255) 0%,
+        rgba(255, 255, 255, 0.861) 30%,
         transparent 70%
     ),
     url(../img/golden-buda.webp);
@@ -84,7 +146,7 @@ nav ul li:last-child{
 .hero-text{
     max-width: 600px;
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -108,40 +170,12 @@ nav ul li:last-child{
     gap: 2em;
 }
 
-.start{
-    padding: 16px;
-    background-color: var(--background-secondary);
-    color: var(--main-text-color);
-    border-radius: 25px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.start:hover{
-     transform: scale(.95);
-}
-
-.demo{
-    display: flex;
-    align-items: center;
-    border-radius: 25px;
-    background-color: rgb(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.demo:hover{
-    transform: scale(.95);
-}
-
 .demo img{
-    padding-inline-start: 16px;
+    padding-inline-start: 8px;
 }
 
 .demo a{
-     padding: 16px 16px 16px 0;
-      color: var(--main-text-color);
+    color: var(--main-text-color);
 }
 
 .frame{
@@ -172,7 +206,77 @@ nav ul li:last-child{
     100% {transform: translateY(0);}
 }
 
-/** ---- HERO MOBILE ---- **/
+/** ---- ARTICLE ---- **/
+
+.info-container{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    height: 300px;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    max-width: 270px;
+}
+
+.text-xl{
+    font-size: 2rem;
+    margin: 0;
+}
+
+/** ---- NEEDS SECTION ---- **/
+
+.needs-section{
+    background-color: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100dvh;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.needs-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.needs-text h2{
+    font-size: 1.8em;
+    margin-block-start: 2em;
+}
+
+.needs-text p{
+    font-size: 1.4em;
+}
+
+.svg{
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: hsla(0, 0%, 50%, 0.212);
+    border-radius: 12px;
+}
+
+/** ---- MOBILE ---- **/
+@media screen and (max-width: 886px) {
+.grid-container{
+   grid-template-columns: repeat(2, 1fr);
+   } 
+}
+
 @media screen and (max-width: 767px) {
     .burguer{
     display: block;
@@ -208,4 +312,14 @@ nav ul li:last-child{
   .cta-container{
     width: 90vw;
   }
+
+.info-container{
+   grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+.grid-container{
+   grid-template-columns: 1fr;
+   } 
 }
