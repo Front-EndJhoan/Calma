@@ -77,7 +77,7 @@ a{
 }
 
 .card:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 2px 2px 2px 2px rgb(207, 207, 207);
 }
 
@@ -101,11 +101,12 @@ nav{
     display: flex;
     justify-content: end;
     background-color: transparent;
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    width: 100vw;
     z-index: 999;
-    padding-inline-end: 2em;
-    padding-block-start: 2em;
+    padding: 2em;
 }
 
 nav ul{
@@ -127,6 +128,13 @@ nav ul li:last-child{
     border-radius: 25px;
     cursor: pointer;
 }
+
+
+.nav-scrolled{
+  background-color: var(--background-footer);
+
+}
+
 .burguer{
     width: 40px;
     height: 40px;
@@ -150,6 +158,9 @@ nav ul li:last-child{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.220);
+    border-radius: 25px;
+    padding: 24px;
 }
 
 .hero-text h1{
@@ -241,9 +252,11 @@ nav ul li:last-child{
 .grid-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    width: 80vw;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 24px;
+    margin-block-start: 2em;
 }
 
 .needs-text{
@@ -270,6 +283,55 @@ nav ul li:last-child{
     border-radius: 12px;
 }
 
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    gap: 3em;
+}
+
+.about-text{
+    width: 65ch;
+    padding-inline: 2em;
+}
+
+.about-img{
+    width: 500px;
+    height: 650px;
+    border-radius: 25px;
+    box-shadow: 1px 1px gray;
+    overflow: hidden;
+    
+}
+
+.container-img{
+    display: flex;
+    position: relative;
+}
+
+
+.about-img img{
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    /* aspect-ratio: 3/4; */
+}
+
+.about-card{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -25px;
+    left: -25px;
+    z-index: 9999;
+    background-color: var(--background-secondary);
+    padding: 24px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 2px 1px rgba(128, 128, 128, 0.76);
+}
+
 /** ---- MOBILE ---- **/
 @media screen and (max-width: 886px) {
 .grid-container{
@@ -287,7 +349,7 @@ nav ul li:last-child{
   .menu{
     position: fixed;
     justify-content: center;
-    top: 75px;
+    top: 104px;
     left: -120%;
     height: 80vh;
     width: 100vw;
