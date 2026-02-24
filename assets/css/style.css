@@ -3,6 +3,7 @@
     --background-secondary: hsl(0, 0%, 100%);
     --background-footer: hsl(220, 43%, 11%);
     --main-text-color: hsl(221, 22%, 19%);
+    --nav-color: hsl(220, 43%, 11%, 0.8);
     --second-text-color: hsl(210, 10%, 96%);
     --card-bg: hsl(0, 0%, 100%);
 }
@@ -38,6 +39,7 @@ a{
     padding: 16px;
     align-items: center;
     border-radius: 25px;
+    border: 1px solid var(--background-secondary);
     background-color: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -53,6 +55,7 @@ a{
     padding: 16px;
     align-items: center;
     border-radius: 25px;
+    border: 1px solid var(--background-secondary);
     background-color: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -106,7 +109,7 @@ nav{
     right: 0;
     width: 100vw;
     z-index: 999;
-    padding: 2em;
+    padding: 1em;
 }
 
 nav ul{
@@ -129,9 +132,8 @@ nav ul li:last-child{
     cursor: pointer;
 }
 
-
 .nav-scrolled{
-  background-color: var(--background-footer);
+  background-color: var(--nav-color);
 
 }
 
@@ -174,7 +176,6 @@ nav ul li:last-child{
     font-weight: 200;
     color: var(--second-text-color);
 }
-
 .cta-container{
     display: flex;
     justify-content: center;
@@ -182,11 +183,15 @@ nav ul li:last-child{
 }
 
 .demo img{
-    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+}
+
+.demo img svg{
+    fill: white;
 }
 
 .demo a{
-    color: var(--main-text-color);
+    color: var(--second-text-color);
 }
 
 .frame{
@@ -364,6 +369,43 @@ nav ul li:last-child{
     border-radius: 50%;
 }
 
+.testimonials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+}
+
+.test-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.users{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.user-name{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-photo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(212, 212, 212);
+}
+
+.user-name p{
+    margin: 0;
+}
+
+
 /** ---- MOBILE ---- **/
 @media screen and (max-width: 886px) {
 .grid-container{
@@ -373,8 +415,105 @@ nav ul li:last-child{
    .about{
     flex-direction: column;
    }
+
+   .test-grid{
+    grid-template-columns: 1fr;
+   }
 }
 
+.download{
+    min-height: 100dvh;
+    background-image: linear-gradient(
+    hsl(220, 43%, 11%, 0.8) 100% 
+    ),
+    url(../img/stone-tower.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.dwl-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dwl-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+}
+
+.download-btn a:last-child{
+    color: var(--second-text-color);
+}
+
+.download-btn{
+    display: flex;
+    gap: 2em;
+}
+
+.main-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 3em;
+    gap: 2em;
+    background-color: var(--background-footer);
+    color: var(--second-text-color);
+}
+
+.main-container ul{
+    padding: 0;
+}
+
+.main-container ul li{
+    margin-block: 5px;
+}
+
+.main-container ul a{
+    color: var(--second-text-color);
+}
+
+.rs-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rs-enlaces{
+    display: flex;
+    gap: 1em;
+}
+
+.twitter{
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/twitter.svg);
+    cursor: pointer;
+}
+
+.instagram{
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/instagram.svg);
+    cursor: pointer;
+}
+
+.linkedin{
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/linkedin.svg);
+    cursor: pointer;
+}
 @media screen and (max-width: 767px) {
     .burguer{
     display: block;
@@ -414,6 +553,10 @@ nav ul li:last-child{
 .info-container{
    grid-template-columns: repeat(2, 1fr);
     }
+
+.main-container{
+    flex-direction: column;
+}
 }
 
 @media screen and (max-width: 576px) {
@@ -428,5 +571,10 @@ nav ul li:last-child{
 
    .about-card{
     padding: 12px;
+   }
+
+   .download-btn{
+    width: 90vw;
+    justify-content: center;
    }
 }
