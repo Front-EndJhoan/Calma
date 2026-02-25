@@ -6,6 +6,13 @@
     --nav-color: hsl(220, 43%, 11%, 0.8);
     --second-text-color: hsl(210, 10%, 96%);
     --card-bg: hsl(0, 0%, 100%);
+    --header-size: clamp(1.5rem, 5vw + 1rem, 3rem);
+    --text-size: clamp(1rem, 2.5vw + 0.5rem, 1.5rem);
+    --sections-spacing: clamp(3rem, 4vw, 3.5rem);
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -84,6 +91,11 @@ a{
     box-shadow: 2px 2px 2px 2px rgb(207, 207, 207);
 }
 
+section:not(.hero){
+    padding-block: var(--sections-spacing);
+    scroll-margin-top: 1.5em;
+}
+
 /** ---- HEADER ---- **/
 
 header{
@@ -102,14 +114,21 @@ header{
 
 nav{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
     background-color: transparent;
     position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
     z-index: 999;
-    padding: 1em;
+    padding-inline: 1em;
+    color: var(--second-text-color);
+}
+
+nav h1{
+    margin-inline-start: 1.5em;
+    font-weight: normal;
 }
 
 nav ul{
@@ -166,13 +185,13 @@ nav ul li:last-child{
 }
 
 .hero-text h1{
-    font-size: 3rem;
+    font-size: var(--header-size);
     font-weight: 400;
     color: var(--second-text-color);
 }
 
 .hero-text p{
-    font-size: 1.5rem;
+    font-size: var(--text-size);
     font-weight: 200;
     color: var(--second-text-color);
 }
@@ -184,6 +203,7 @@ nav ul li:last-child{
 
 .demo img{
     padding-inline-end: 8px;
+    filter: invert(1);
 }
 
 .demo img svg{
@@ -199,18 +219,18 @@ nav ul li:last-child{
     justify-content: center;
     align-items: end;
     position: absolute;
-    bottom: 10%;
+    bottom: 0%;
     left: 50%;
-    height: 40px;
-    width: 16px;
+    height: 36px;
+    width: 12px;
     padding: 5px;
     border: 2px solid var(--background-secondary);
     border-radius: 25px;
 }
 
 .rounded{
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     background-color: var(--background-secondary);
     animation: bounce 2s infinite;
@@ -240,7 +260,7 @@ nav ul li:last-child{
 }
 
 .text-xl{
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0;
 }
 
@@ -271,12 +291,12 @@ nav ul li:last-child{
 }
 
 .needs-text h2{
-    font-size: 1.8em;
+    font-size: var(--header-size);
     margin-block-start: 2em;
 }
 
 .needs-text p{
-    font-size: 1.4em;
+    font-size: var(--text-size);
 }
 
 .svg{
@@ -297,7 +317,7 @@ nav ul li:last-child{
 }
 
 .about-text{
-    max-width: 500px;
+    max-width: 600px;
     padding-inline: 2em;
     line-height: 1.5;
 }
@@ -323,6 +343,14 @@ nav ul li:last-child{
     object-fit: cover;
     object-position: center 60%;
     display: block;
+}
+
+.about h2{
+    font-size: var(--header-size);
+}
+
+.text-l{
+    font-size: var(--text-size);
 }
 
 .about-card{
@@ -374,7 +402,10 @@ nav ul li:last-child{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100dvh;
+}
+
+.testimonials h1{
+    font-size: var(--header-size);
 }
 
 .test-grid{
@@ -431,6 +462,11 @@ nav ul li:last-child{
     background-size: cover;
     background-position: center;
     position: relative;
+    color: var(--second-text-color);
+}
+
+.download h2{
+    font-size: var(--header-size);
 }
 
 .dwl-content{
@@ -487,11 +523,15 @@ nav ul li:last-child{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--background-footer);
+    color: var(--background-secondary);
+    padding: 1em;
 }
 
 .rs-enlaces{
     display: flex;
     gap: 1em;
+    filter: invert(1);
 }
 
 .twitter{
@@ -514,6 +554,7 @@ nav ul li:last-child{
     background-image: url(../img/linkedin.svg);
     cursor: pointer;
 }
+
 @media screen and (max-width: 767px) {
     .burguer{
     display: block;
@@ -557,6 +598,16 @@ nav ul li:last-child{
 .main-container{
     flex-direction: column;
 }
+
+.needs-text p{
+    padding-inline: 1em;
+    text-align: center;
+}
+
+
+.about h2{
+    text-align: center;
+}
 }
 
 @media screen and (max-width: 576px) {
@@ -575,6 +626,11 @@ nav ul li:last-child{
 
    .download-btn{
     width: 90vw;
+    justify-content: center;
+   }
+
+   .rs-container{
+    flex-direction: column;
     justify-content: center;
    }
 }
