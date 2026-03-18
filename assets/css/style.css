@@ -28,6 +28,17 @@ a{
     text-decoration: none;
 }
 
+.hero, .needs-section, .about, .testimonials, .download{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.5s ease;
+}
+
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /** ---- UTILIDADES ---- **/
 .btn1{
     padding: 16px;

@@ -17,3 +17,22 @@ addEventListener("DOMContentLoaded", () => {
     }
  })
 })
+
+function animateOnScroll() {
+    const sections = document.querySelectorAll('.hero, .needs-section, .about, .testimonials, .download');
+    const windowHeight = window.innerHeight;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < windowHeight * 0.8) {
+            section.classList.add('animate');
+        } else {
+            section.classList.remove('animate');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
